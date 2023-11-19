@@ -32,7 +32,7 @@ delta:
     tape_output:
     tape_displacement: R
 # Cadenas a ser simuladas por su MT luego de parsearla y generarla
-simultion_strings:
+simulation_strings:
 - aab#aab
 - ab#ab
 - abbababa#aba

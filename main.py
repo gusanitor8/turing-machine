@@ -1,7 +1,16 @@
-from TuringMachine import TuringMachine, L, R, S
+from Parser import get_turing_machine_attr
+from TuringMachine import TuringMachine
 
-transition_function = {
-    # ((current_state, cache),tape_value_input): ((new_state, new_cache), tape_output, head_directionRSL )
-    (("0", "_"), "a"): (("1", "a"), "_", R),
-    (("0", "_"), "b"): (("1", "b"), "_", R),
-}
+
+def main():
+    alphabet, input_symbols, states, initial_state, accepting_states, transition_function, simulation_strings = (
+        get_turing_machine_attr('Entrada.yaml'))
+
+    tm = TuringMachine(alphabet, input_symbols, states, initial_state, accepting_states, transition_function)
+    for string in simulation_strings:
+        tm.run(string)
+
+
+if __name__ == "__main__":
+    main()
+

@@ -47,7 +47,6 @@ class TuringMachine:
                 self.tape.go_left()
         print("cadena :" + input_string + " aceptada")
 
-
     def get_transition(self, state, tape_value, cache_value):
         if ((state, cache_value), tape_value) in self.transition_function:
             transition = self.transition_function[((state, cache_value), tape_value)]
@@ -61,17 +60,18 @@ class TuringMachine:
 
             return new_state, new_cache, tape_output, head_direction
         else:
-            exit("No transition found for state: " + state + " tape_value: " + tape_value + " cache_value: "
-                 + cache_value)
+            print("No transition found for state: " + state + " tape_value: " + tape_value + " cache_value: "
+                  + cache_value)
+            exit()
 
     def print_instant_description(self):
         left_side = self.tape.get_left_side()
         right_side = self.tape.get_right_side()
+        current_char = self.tape.get_current()
         state_tuple = self.current_state
         cache_value = self.cache
 
-        print("꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + right_side)
-
+        print("꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + current_char + "," + right_side)
 
 
 class Node:
@@ -97,14 +97,14 @@ class Tape:
     def go_right(self):
         if self.current.next is None:
             self._set_next(self.blank_symbol)
-            #self.current = self.current.next
+            # self.current = self.current.next
         else:
             self.current = self.current.next
 
     def go_left(self):
         if self.current.prev is None:
             self._set_prev(self.blank_symbol)
-            #self.current = self.current.prev
+            # self.current = self.current.prev
         else:
             self.current = self.current.prev
 
@@ -159,8 +159,4 @@ class Tape:
         right = self.get_right_side()
         left = self.get_left_side()
 
-        return "[" + left + " >"+ self.current.char + "," + right + "]"
-
-
-
-
+        return "[" + left + " >" + self.current.char + "," + right + "]"

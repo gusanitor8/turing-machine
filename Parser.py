@@ -34,7 +34,7 @@ def parse_config(config):
         state_cache_key = ((initial_state, cache_value), tape_input)
         
         # Obtener información sobre la cinta después de aplicar la transición
-        new_state = replace_empty_with_underscore(str(t['output']['fina_state']))
+        new_state = replace_empty_with_underscore(str(t['output']['final_state']))
         tape_output = replace_empty_with_underscore(t['output']['tape_output'])
         tape_displacement = replace_empty_with_underscore(t['output']['tape_displacement'])
         
@@ -48,7 +48,7 @@ def parse_config(config):
 
 # Función principal
 def main():
-    filename = 'Entrada.yaml'  # Reemplaza con el nombre de tu archivo YAML
+    filename = 'MT_alteradora.yaml'  # Reemplaza con el nombre de tu archivo YAML
     config = load_config(filename)
     parsed_config = parse_config(config) # Esto usa la MT
 

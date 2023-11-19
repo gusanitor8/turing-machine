@@ -9,30 +9,53 @@ q_states:
   - '5'
   initial: '0'
   final: '5'
-#Alfabetos de la MT
+
+# Alfabetos de la MT
 alphabet:
 - a
 - b
 tape_alphabet:
 - "#"
 - X
--
-# Funcion de transicion
+- a
+- b
+
+# Función de transición
 delta:
-# Es una lista en donde cada elemento de la lista es un objeto que guarda la 
-# informacion sobre los parametros a utilizar y el resultado al aplicar la funcion
 - params:
-    initial_state: 0
-    # Valor guardado en cache
-    mem_cache_value: 
-    tape_input: a
+    initial_state: '0'
+    mem_cache_value: '#'
+    tape_input: 'a'
   output:
-    fina_state: 1
-    mem_cache_value: a
-    tape_output:
+    final_state: '1'
+    mem_cache_value: 'a'
+    tape_output: 'X'
     tape_displacement: R
+
+- params:
+    initial_state: '1'
+    mem_cache_value: 'a'
+    tape_input: 'a'
+  output:
+    final_state: '1'
+    mem_cache_value: 'a'
+    tape_output: 'a'
+    tape_displacement: R
+
+- params:
+    initial_state: '1'
+    mem_cache_value: 'a'
+    tape_input: 'b'
+  output:
+    final_state: '2'
+    mem_cache_value: 'b'
+    tape_output: 'a'
+    tape_displacement: R
+
+# Continúa definiendo las transiciones según la lógica de tu máquina
+
 # Cadenas a ser simuladas por su MT luego de parsearla y generarla
-simultion_strings:
+simulation_strings:
 - aab#aab
 - ab#ab
 - abbababa#aba

@@ -60,6 +60,7 @@ def get_turing_machine_attr(filename):
     accepting_states = {config['q_states']['final']}
     transition_function = parsed_config
     simulation_strings = config['simulation_strings']
+    print(transition_function)
 
     return alphabet, input_symbols, states, initial_state, accepting_states, transition_function, simulation_strings
 

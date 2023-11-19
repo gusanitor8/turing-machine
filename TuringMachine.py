@@ -6,7 +6,7 @@ S = 0
 class TuringMachine:
     def __init__(self, alphabet: set, input_symbols: set, states: set, initial_state: str,
                  accepting_states: set, transition_function: dict, blank_symbol: str = "_"):
-
+        """
         if blank_symbol not in alphabet:
             raise ValueError("Blank symbol must be in alphabet")
         if not input_symbols.issubset(alphabet):
@@ -15,7 +15,7 @@ class TuringMachine:
             raise ValueError("Initial state must be in states")
         if not accepting_states.issubset(states):
             raise ValueError("Accepting states must be a subset of states")
-
+        """
 
         self.alphabet = alphabet
         self.blank_symbol = blank_symbol
@@ -45,6 +45,8 @@ class TuringMachine:
                 self.tape.go_right()
             elif head_direction == "L":
                 self.tape.go_left()
+        print("cadena :" + input_string + " aceptada")
+
 
     def get_transition(self, state, tape_value, cache_value):
         if ((state, cache_value), tape_value) in self.transition_function:
@@ -95,14 +97,14 @@ class Tape:
     def go_right(self):
         if self.current.next is None:
             self._set_next(self.blank_symbol)
-            self.current = self.current.next
+            #self.current = self.current.next
         else:
             self.current = self.current.next
 
     def go_left(self):
         if self.current.prev is None:
             self._set_prev(self.blank_symbol)
-            self.current = self.current.prev
+            #self.current = self.current.prev
         else:
             self.current = self.current.prev
 
@@ -117,7 +119,7 @@ class Tape:
         current = self.current
 
         while current.prev is not None:
-            left = current.char + ", " + left
+            left = current.prev.char + ", " + left
             current = current.prev
 
         return left
@@ -127,9 +129,8 @@ class Tape:
         current = self.current
 
         while current.next is not None:
-            right += current.char + ", "
+            right += current.next.char + ", "
             current = current.next
-        right += current.char
 
         return right
 
@@ -158,7 +159,7 @@ class Tape:
         right = self.get_right_side()
         left = self.get_left_side()
 
-        return "[" + left + " >" + right + "]"
+        return "[" + left + " >"+ self.current.char + "," + right + "]"
 
 
 

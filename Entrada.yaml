@@ -1,61 +1,81 @@
-# Lista de estados
 q_states:
   q_list:
-  - '0'
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  initial: '0'
-  final: '5'
-
-# Alfabetos de la MT
+  - "q0"
+  - "q1"
+  - "qhalt"
+  initial: 'q0'
+  final: 'qhalt'
+  accept: 'qhalt'
 alphabet:
-- a
-- b
+- '0'
+- '1'
 tape_alphabet:
-- "#"
-- X
-- a
-- b
-
-# Función de transición
+- '0'
+- '1'
+- '_'
+blank: '_'
 delta:
-- params:
-    initial_state: '0'
-    mem_cache_value: '#'
-    tape_input: 'a'
-  output:
-    final_state: '1'
-    mem_cache_value: 'a'
-    tape_output: 'X'
-    tape_displacement: R
+  - params:
+      initial_state: 'q0'
+      mem_cache_value:
+      tape_input: '0'
+    output:
+      final_state: 'q0'
+      mem_cache_value:
+      tape_output: '0'
+      tape_displacement: 'R'
+  
+  - params:
+      initial_state: 'q0'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q0'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: 'R'
 
-- params:
-    initial_state: '1'
-    mem_cache_value: 'a'
-    tape_input: 'a'
-  output:
-    final_state: '1'
-    mem_cache_value: 'a'
-    tape_output: 'a'
-    tape_displacement: R
+  - params:
+      initial_state: 'q0'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q1'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: 'L'
+  
+  - params:
+      initial_state: 'q1'
+      mem_cache_value:
+      tape_input: '0'
+    output:
+      final_state: 'qhalt'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: 'R'
 
-- params:
-    initial_state: '1'
-    mem_cache_value: 'a'
-    tape_input: 'b'
-  output:
-    final_state: '2'
-    mem_cache_value: 'b'
-    tape_output: 'a'
-    tape_displacement: R
+  - params:
+      initial_state: 'q1'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q1'
+      mem_cache_value:
+      tape_output: '0'
+      tape_displacement: 'L'
 
-# Continúa definiendo las transiciones según la lógica de tu máquina
-
-# Cadenas a ser simuladas por su MT luego de parsearla y generarla
+  - params:
+      initial_state: 'q1'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'qhalt'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: 'L'
+    
 simulation_strings:
-- aab#aab
-- ab#ab
-- abbababa#aba
+- '11'
+- '10011'
+- '11'

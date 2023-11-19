@@ -31,7 +31,7 @@ delta:
 # Transiciones
 - params:
     initial_state: '0'
-    mem_cache_value: '_'
+    mem_cache_value: '#'
     tape_input: 'a'
   output:
     final_state: '1'
@@ -51,411 +51,411 @@ delta:
 
 - params:
     initial_state: '0'
-    mem_cache_value: '#'
+    mem_cache_value: 
     tape_input: '_'
   output:
     final_state: '10'
-    mem_cache_value: '_'
+    mem_cache_value: 
     tape_output: '_'
     tape_displacement: L
 
 - params:
     initial_state: '0'
-    mem_cache_value: '#'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '0'
-    mem_cache_value: '#'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '9'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'a'
   output:
     final_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_output: 'a'
     tape_displacement: R
 
 - params:
     initial_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'b'
   output:
     final_state: '1'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_output: 'a'
     tape_displacement: R
 
 - params:
     initial_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: '_'
   output:
     final_state: '3'
-    mem_cache_value: '_'
+    mem_cache_value: 
     tape_output: '_'
     tape_displacement: L
 
 - params:
     initial_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '3'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: L
 
 - params:
     initial_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '3'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: L
 
 - params:
     initial_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'a'
   output:
     final_state: '2'
-    mem_cache_value: 'a'
+    mem_cache_value:
     tape_output: 'b'
     tape_displacement: R
 
 - params:
     initial_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'b'
   output:
     final_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_output: 'b'
     tape_displacement: R
 
 - params:
     initial_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: '_'
   output:
     final_state: '4'
-    mem_cache_value: '_'
+    mem_cache_value: 
     tape_output: '_'
     tape_displacement: L
 
 - params:
     initial_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '4'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: L
 
 - params:
     initial_state: '2'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '4'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: L
 
 - params:
     initial_state: '3'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '5'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: L
 
 - params:
     initial_state: '3'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '6'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: L
 
 - params:
     initial_state: '4'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '5'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: L
 
 - params:
     initial_state: '4'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '6'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: L
 
 - params:
     initial_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'a'
   output:
     final_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_output: 'a'
     tape_displacement: L
 
 - params:
     initial_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'b'
   output:
     final_state: '5'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_output: 'b'
     tape_displacement: L
 
 - params:
     initial_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: '_'
   output:
     final_state: '7'
-    mem_cache_value: '_'
+    mem_cache_value: 
     tape_output: '_'
     tape_displacement: R
 
 - params:
     initial_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '7'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '5'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_input: 'y'
   output:
     final_state: '7'
-    mem_cache_value: 'y'
+    mem_cache_value: 
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'a'
   output:
     final_state: '6'
-    mem_cache_value: 'a'
+    mem_cache_value: 
     tape_output: 'a'
     tape_displacement: L
 
 - params:
     initial_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: 'b'
   output:
     final_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_output: 'b'
     tape_displacement: L
 
 - params:
     initial_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value: 
     tape_input: '_'
   output:
     final_state: '8'
-    mem_cache_value: '_'
+    mem_cache_value: 
     tape_output: '_'
     tape_displacement: R
 
 - params:
     initial_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value:
     tape_input: 'x'
   output:
     final_state: '8'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '6'
-    mem_cache_value: 'b'
+    mem_cache_value:
     tape_input: 'y'
   output:
     final_state: '8'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '7'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'x'
   output:
     final_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '7'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'y'
   output:
     final_state: '9'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '7'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'a'
   output:
     final_state: '0'
-    mem_cache_value: 'a'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '7'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'b'
   output:
     final_state: '0'
-    mem_cache_value: 'b'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '8'
-    mem_cache_value: 'x'
+    mem_cache_value: 
     tape_input: 'x'
   output:
     final_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '8'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'y'
   output:
     final_state: '9'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '8'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'a'
   output:
     final_state: '0'
     mem_cache_value: 'y'
-    tape_output: 'x'
+    tape_output:
     tape_displacement: R
 
 - params:
     initial_state: '8'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'b'
   output:
     final_state: '0'
     mem_cache_value: 'y'
-    tape_output: 'x'
+    tape_output:
     tape_displacement: R
 
 - params:
     initial_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'x'
   output:
     final_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: R
 
 - params:
     initial_state: '9'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'y'
   output:
     final_state: '9'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_output: 'y'
     tape_displacement: R
 
 - params:
     initial_state: '9'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_input: '_'
   output:
     final_state: '10'
-    mem_cache_value: '_'
+    mem_cache_value:
     tape_output: '_'
     tape_displacement: L
 
 - params:
     initial_state: '10'
-    mem_cache_value: 'x'
+    mem_cache_value:
     tape_input: 'a'
   output:
     final_state: '10'
-    mem_cache_value: 'a'
+    mem_cache_value:
     tape_output: 'x'
     tape_displacement: L
 
 - params:
     initial_state: '10'
-    mem_cache_value: 'y'
+    mem_cache_value:
     tape_input: 'b'
   output:
     final_state: '10'
-    mem_cache_value: 'b'
+    mem_cache_value:
     tape_output: 'y'
     tape_displacement: L
 
 - params:
     initial_state: '10'
-    mem_cache_value: '_'
+    mem_cache_value:
     tape_input: '_'
   output:
     final_state: '11'
-    mem_cache_value: '_'
+    mem_cache_value:
     tape_output: '_'
     tape_displacement: R
 

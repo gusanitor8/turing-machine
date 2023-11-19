@@ -6,7 +6,7 @@ S = 0
 class TuringMachine:
     def __init__(self, alphabet: set, input_symbols: set, states: set, initial_state: str,
                  accepting_states: set, transition_function: dict, blank_symbol: str = "_"):
-        """
+
         if blank_symbol not in alphabet:
             raise ValueError("Blank symbol must be in alphabet")
         if not input_symbols.issubset(alphabet):
@@ -15,7 +15,7 @@ class TuringMachine:
             raise ValueError("Initial state must be in states")
         if not accepting_states.issubset(states):
             raise ValueError("Accepting states must be a subset of states")
-        """
+
 
         self.alphabet = alphabet
         self.blank_symbol = blank_symbol
@@ -31,8 +31,9 @@ class TuringMachine:
 
     def run(self, input_string: str):
         self.tape = Tape(input_string, self.blank_symbol)
-
         while self.current_state not in self.accepting_states:
+            self.print_instant_description()
+
             curr_char = self.tape.get_current()
             new_state, new_cache, tape_output, head_direction = self.get_transition(self.current_state, curr_char,
                                                                                     self.cache)
@@ -60,6 +61,15 @@ class TuringMachine:
         else:
             exit("No transition found for state: " + state + " tape_value: " + tape_value + " cache_value: "
                  + cache_value)
+
+    def print_instant_description(self):
+        left_side = self.tape.get_left_side()
+        right_side = self.tape.get_right_side()
+        state_tuple = self.current_state
+        cache_value = self.cache
+
+        print("꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + right_side)
+
 
 
 class Node:
@@ -102,6 +112,27 @@ class Tape:
     def get_current(self):
         return self.current.char
 
+    def get_left_side(self):
+        left = ""
+        current = self.current
+
+        while current.prev is not None:
+            left = current.char + ", " + left
+            current = current.prev
+
+        return left
+
+    def get_right_side(self):
+        right = ""
+        current = self.current
+
+        while current.next is not None:
+            right += current.char + ", "
+            current = current.next
+        right += current.char
+
+        return right
+
     def _set_initial_node(self, value):
         self.origin = Node(value)
         self.current = self.origin
@@ -124,19 +155,8 @@ class Tape:
         self.current = self.origin
 
     def __str__(self):
-        current = self.current
-        right = ""
-        left = ""
-
-        while current.next is not None:
-            right += current.char + ", "
-            current = current.next
-        right += current.char
-
-        current = self.current
-        while current.prev is not None:
-            left = current.char + ", " + left
-            current = current.prev
+        right = self.get_right_side()
+        left = self.get_left_side()
 
         return "[" + left + " >" + right + "]"
 

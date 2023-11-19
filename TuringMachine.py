@@ -4,8 +4,8 @@ S = 0
 
 
 class TuringMachine:
-    def __init__(self, alphabet: set, blank_symbol: str, input_symbols: set, states: set, initial_state: str,
-                 accepting_states: set, transition_function: dict):
+    def __init__(self, alphabet: set, input_symbols: set, states: set, initial_state: str,
+                 accepting_states: set, transition_function: dict, blank_symbol: str = "_"):
 
         if blank_symbol not in alphabet:
             raise ValueError("Blank symbol must be in alphabet")
@@ -16,6 +16,7 @@ class TuringMachine:
         if not accepting_states.issubset(states):
             raise ValueError("Accepting states must be a subset of states")
 
+
         self.alphabet = alphabet
         self.blank_symbol = blank_symbol
         self.input_symbols = input_symbols
@@ -25,13 +26,14 @@ class TuringMachine:
         self.transition_function = transition_function
 
         self.tape = None  # Tape is set in run method
-        self.cache = ""
+        self.cache = self.blank_symbol
         self.current_state = initial_state
 
     def run(self, input_string: str):
         self.tape = Tape(input_string, self.blank_symbol)
-
         while self.current_state not in self.accepting_states:
+            self.print_instant_description()
+
             curr_char = self.tape.get_current()
             new_state, new_cache, tape_output, head_direction = self.get_transition(self.current_state, curr_char,
                                                                                     self.cache)
@@ -39,9 +41,9 @@ class TuringMachine:
             self.cache = new_cache
             self.tape.write(tape_output)
 
-            if head_direction == R:
+            if head_direction == "R":
                 self.tape.go_right()
-            elif head_direction == L:
+            elif head_direction == "L":
                 self.tape.go_left()
 
     def get_transition(self, state, tape_value, cache_value):
@@ -60,10 +62,19 @@ class TuringMachine:
             exit("No transition found for state: " + state + " tape_value: " + tape_value + " cache_value: "
                  + cache_value)
 
+    def print_instant_description(self):
+        left_side = self.tape.get_left_side()
+        right_side = self.tape.get_right_side()
+        state_tuple = self.current_state
+        cache_value = self.cache
+
+        print("꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + right_side)
+
+
 
 class Node:
     def __init__(self, value):
-        self.char = ""
+        self.char = value
         self.next = None
         self.prev = None
 
@@ -72,10 +83,14 @@ class Tape:
     def __init__(self, string, blank_symbol):
         self.blank_symbol = blank_symbol
         self.current = None
+        self.head = None
+        self.tail = None
+        self.origin = None
 
         self._set_initial_node(string[0])
         for char in string[1:]:
             self._set_next(char)
+        self._return_to_origin()
 
     def go_right(self):
         if self.current.next is None:
@@ -97,11 +112,54 @@ class Tape:
     def get_current(self):
         return self.current.char
 
+    def get_left_side(self):
+        left = ""
+        current = self.current
+
+        while current.prev is not None:
+            left = current.char + ", " + left
+            current = current.prev
+
+        return left
+
+    def get_right_side(self):
+        right = ""
+        current = self.current
+
+        while current.next is not None:
+            right += current.char + ", "
+            current = current.next
+        right += current.char
+
+        return right
+
     def _set_initial_node(self, value):
-        self.current = Node(value)
+        self.origin = Node(value)
+        self.current = self.origin
 
     def _set_next(self, value):
-        self.current.next = Node(value)
+        new_node = Node(value)
+        self.current.next = new_node
+        new_node.prev = self.current
+        self.current = new_node
+        self.head = self.current
 
     def _set_prev(self, value):
-        self.current.prev = Node(value)
+        new_node = Node(value)
+        self.current.prev = new_node
+        new_node.next = self.current
+        self.current = new_node
+        self.tail = self.current
+
+    def _return_to_origin(self):
+        self.current = self.origin
+
+    def __str__(self):
+        right = self.get_right_side()
+        left = self.get_left_side()
+
+        return "[" + left + " >" + right + "]"
+
+
+
+

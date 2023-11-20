@@ -60,23 +60,9 @@ def get_turing_machine_attr(filename):
     accepting_states = {config['q_states']['final']}
     transition_function = parsed_config
     simulation_strings = config['simulation_strings']
-    print(transition_function)
 
     return alphabet, input_symbols, states, initial_state, accepting_states, transition_function, simulation_strings
 
-
-# Función principal
-def main():
-    filename = 'MT_alteradora.yaml'  # Reemplaza con el nombre de tu archivo YAML
-    config = load_config(filename)
-    parsed_config = parse_config(config)  # Esto usa la MT
-
-    # Imprimir la configuración parseada en el formato requerido
-    for key, value in parsed_config.items():
-        print(f"{key}: {value}")
-
-    for key, value in config.items():
-        print(f"{key}: {value}")
 
 
 

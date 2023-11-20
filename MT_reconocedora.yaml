@@ -1,157 +1,316 @@
 # Lista de estados
 q_states:
   q_list:
-  - 'q0'
-  - 'q1'
-  - 'q2'
-  - 'q3'
-  - 'q4'
-  - 'q5'
-  - 'q6'
-  - 'qacc'
-  initial: 'q0'
-  final: 'qacc'
+  - 'A'
+  - 'B'
+  - 'C'
+  - 'D'
+  - 'E'
+  - 'F'
+  - 'G'
+  - 'H'
+  - 'I'
+  initial: 'A'
+  final: 'H'
 
 # Alfabetos de la MT
 alphabet:
 - a
 - b
 tape_alphabet:
+- "_"
+- X
 - a
 - b
-- X
-- B
 
 # Función de transición
 delta:
+# Transiciones
+# A
 - params:
-    initial_state: 'q0'
+    initial_state: 'A'
+    mem_cache_value:
     tape_input: 'a'
   output:
-    final_state: 'q1'
-    mem_cache_value: '_'
-    tape_output: 'X'
+    final_state: 'B'
+    mem_cache_value:
+    tape_output: '_'
     tape_displacement: R
 
 - params:
-    initial_state: 'q1'
+    initial_state: 'A'
+    mem_cache_value:
+    tape_input: 'b'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'A'
+    mem_cache_value:
+    tape_input: 'X'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'A'
+    mem_cache_value:
+    tape_input: '_'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: S
+
+- params:
+    initial_state: 'B'
+    mem_cache_value:
     tape_input: 'a'
   output:
-    final_state: 'q1'
-    mem_cache_value: 'a'
+    final_state: 'B'
+    mem_cache_value:
     tape_output: 'a'
     tape_displacement: R
 
 - params:
-    initial_state: 'q1'
+    initial_state: 'B'
+    mem_cache_value:
+    tape_input: 'b'
+  output:
+    final_state: 'C'
+    mem_cache_value:
+    tape_output: 'X'
+    tape_displacement: R
+
+- params:
+    initial_state: 'B'
+    mem_cache_value:
     tape_input: 'X'
   output:
-    final_state: 'q1'
-    mem_cache_value: 'X'
+    final_state: 'B'
+    mem_cache_value:
     tape_output: 'X'
     tape_displacement: R
 
 - params:
-    initial_state: 'q1'
-    tape_input: 'b'
+    initial_state: 'B'
+    mem_cache_value:
+    tape_input: '_'
   output:
-    final_state: 'q2'
-    mem_cache_value: 'X'
-    tape_output: 'X'
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
     tape_displacement: R
 
 - params:
-    initial_state: 'q2'
+    initial_state: 'C'
+    mem_cache_value:
+    tape_input: 'a'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'C'
+    mem_cache_value:
     tape_input: 'b'
   output:
-    final_state: 'q3'
-    mem_cache_value: 'b'
+    final_state: 'D'
+    mem_cache_value:
     tape_output: 'b'
     tape_displacement: L
 
 - params:
-    initial_state: 'q3'
+    initial_state: 'C'
+    mem_cache_value:
     tape_input: 'X'
   output:
-    final_state: 'q3'
-    mem_cache_value: 'X'
-    tape_output: 'X'
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'C'
+    mem_cache_value:
+    tape_input: '_'
+  output:
+    final_state: 'G'
+    mem_cache_value:
+    tape_output: '_'
     tape_displacement: L
 
 - params:
-    initial_state: 'q3'
+    initial_state: 'D'
+    mem_cache_value:
     tape_input: 'a'
   output:
-    final_state: 'q4'
-    mem_cache_value: 'a'
+    final_state: 'E'
+    mem_cache_value:
     tape_output: 'a'
     tape_displacement: L
 
 - params:
-    initial_state: 'q4'
+    initial_state: 'D'
+    mem_cache_value:
+    tape_input: 'b'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'D'
+    mem_cache_value:
+    tape_input: 'X'
+  output:
+    final_state: 'D'
+    mem_cache_value:
+    tape_output: 'X'
+    tape_displacement: L
+
+- params:
+    initial_state: 'D'
+    mem_cache_value:
+    tape_input: '_'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'E'
+    mem_cache_value:
     tape_input: 'a'
   output:
-    final_state: 'q4'
-    mem_cache_value: 'a'
+    final_state: 'E'
+    mem_cache_value:
     tape_output: 'a'
     tape_displacement: L
 
 - params:
-    initial_state: 'q4'
-    tape_input: 'X'
+    initial_state: 'E'
+    mem_cache_value:
+    tape_input: 'b'
   output:
-    final_state: 'q5'
-    mem_cache_value: 'X'
-    tape_output: 'X'
-    tape_displacement: L
-
-- params:
-    initial_state: 'q4'
-    tape_input: '_'
-  output:
-    final_state: 'q5'
-    mem_cache_value: '_'
+    final_state: 'I'
+    mem_cache_value:
     tape_output: '_'
     tape_displacement: R
 
 - params:
-    initial_state: 'q5'
+    initial_state: 'E'
+    mem_cache_value:
+    tape_input: 'X'
+  output:
+    final_state: 'F'
+    mem_cache_value:
+    tape_output: 'X'
+    tape_displacement: R
+
+- params:
+    initial_state: 'E'
+    mem_cache_value:
+    tape_input: '_'
+  output:
+    final_state: 'F'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'F'
+    mem_cache_value:
     tape_input: 'a'
   output:
-    final_state: 'q1'
-    mem_cache_value: 'X'
+    final_state: 'B'
+    mem_cache_value:
     tape_output: 'X'
     tape_displacement: R
 
 - params:
-    initial_state: 'q2'
-    tape_input: '_'
+    initial_state: 'F'
+    mem_cache_value:
+    tape_input: 'b'
   output:
-    final_state: 'q6'
-    mem_cache_value: '_'
+    final_state: 'I'
+    mem_cache_value:
     tape_output: '_'
-    tape_displacement: L
+    tape_displacement: R
 
 - params:
-    initial_state: 'q6'
+    initial_state: 'F'
+    mem_cache_value:
     tape_input: 'X'
   output:
-    final_state: 'q6'
-    mem_cache_value: 'X'
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'F'
+    mem_cache_value:
+    tape_input: '_'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'G'
+    mem_cache_value:
+    tape_input: 'a'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'G'
+    mem_cache_value:
+    tape_input: 'b'
+  output:
+    final_state: 'I'
+    mem_cache_value:
+    tape_output: '_'
+    tape_displacement: R
+
+- params:
+    initial_state: 'G'
+    mem_cache_value:
+    tape_input: 'X'
+  output:
+    final_state: 'G'
+    mem_cache_value:
     tape_output: 'X'
     tape_displacement: L
 
 - params:
-    initial_state: 'q6'
+    initial_state: 'G'
+    mem_cache_value:
     tape_input: '_'
   output:
-    final_state: 'qacc'
-    mem_cache_value: '_'
+    final_state: 'H'
+    mem_cache_value:
     tape_output: '_'
     tape_displacement: R
+
 
 # Cadenas a ser simuladas por su MT luego de parsearla y generarla
 simulation_strings:
-- aaabbb
 - aabb
-- aaaabbbbb
+- aaabbb
+- aabbb
+- bbbab

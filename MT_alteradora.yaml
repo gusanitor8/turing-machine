@@ -31,17 +31,17 @@ delta:
 # Transiciones
 - params:
     initial_state: '0'
-    mem_cache_value: '#'
+    mem_cache_value:
     tape_input: 'a'
   output:
     final_state: '1'
-    mem_cache_value: 'a'
+    mem_cache_value:
     tape_output: 'X'
     tape_displacement: R
 
 - params:
     initial_state: '0'
-    mem_cache_value: '#'
+    mem_cache_value:
     tape_input: 'b'
   output:
     final_state: '2'

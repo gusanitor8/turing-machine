@@ -31,12 +31,17 @@ class TuringMachine:
 
     def run(self, input_string: str):
         self.tape = Tape(input_string, self.blank_symbol)
+        self.print_current_string(input_string)
+
         while self.current_state not in self.accepting_states:
             self.print_instant_description()
 
             curr_char = self.tape.get_current()
             new_state, new_cache, tape_output, head_direction = self.get_transition(self.current_state, curr_char,
                                                                                     self.cache)
+            if new_state is None:
+                break
+
             self.current_state = new_state
             self.cache = new_cache
             self.tape.write(tape_output)
@@ -45,7 +50,11 @@ class TuringMachine:
                 self.tape.go_right()
             elif head_direction == "L":
                 self.tape.go_left()
-        print("cadena :" + input_string + " aceptada")
+
+        if self.current_state in self.accepting_states:
+            self.print_is_accepted(input_string)
+        else:
+            self.print_is_rejected(input_string)
 
     def get_transition(self, state, tape_value, cache_value):
         if ((state, cache_value), tape_value) in self.transition_function:
@@ -60,9 +69,7 @@ class TuringMachine:
 
             return new_state, new_cache, tape_output, head_direction
         else:
-            print("No transition found for state: " + state + " tape_value: " + tape_value + " cache_value: "
-                  + cache_value)
-            exit()
+            return None, None, None, None
 
     def print_instant_description(self):
         left_side = self.tape.get_left_side()
@@ -71,7 +78,19 @@ class TuringMachine:
         state_tuple = self.current_state
         cache_value = self.cache
 
-        print("꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + current_char + "," + right_side)
+        print("\t꜔  " + left_side + " [" + state_tuple + ", " + cache_value + "] " + current_char + "," + right_side)
+
+    @staticmethod
+    def print_is_accepted(string: str):
+        print("The String: " + string + " is ACCCEPTED by the TM \n\n")
+
+    @staticmethod
+    def print_is_rejected(string: str):
+        print("The String: " + string + " is REJECTED by the TM \n\n")
+
+    @staticmethod
+    def print_current_string(string: str):
+        print("Current String: " + string)
 
 
 class Node:

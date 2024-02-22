@@ -1,6 +1,6 @@
 from Parser import get_turing_machine_attr
 from TuringMachine import TuringMachine
-
+BLANC = "B"
 
 def main():
     # Turing machine 1
@@ -9,7 +9,7 @@ def main():
         get_turing_machine_attr('MT_fibonacci.yaml'))
 
     for string in simulation_strings:
-        tm = TuringMachine(alphabet, input_symbols, states, initial_state, accepting_states, transition_function)
+        tm = TuringMachine(alphabet, input_symbols, states, initial_state, accepting_states, transition_function, BLANC)
 
         tm.run(string)
 

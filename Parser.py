@@ -1,5 +1,6 @@
 import yaml
 
+BLANC = "B"
 
 # Función para cargar la configuración desde un archivo YAML
 def load_config(filename):
@@ -16,7 +17,7 @@ def parse_config(config):
 
     # Función para reemplazar valores vacíos con '_'
     def replace_empty_with_underscore(value):
-        return '_' if value == 'None' or value is None else str(value)
+        return BLANC if value == 'None' or value is None else str(value)
 
     # Diccionario para almacenar la configuración parseada
     parsed_config = {}
@@ -27,8 +28,8 @@ def parse_config(config):
         initial_state = replace_empty_with_underscore(str(t['params']['initial_state']))
 
         # Manejar mem_cache_value y new_cache_value
-        cache_value = replace_empty_with_underscore(str(t['params'].get('mem_cache_value', '_')))
-        new_cache_value = replace_empty_with_underscore(str(t['output'].get('mem_cache_value', '_')))
+        cache_value = replace_empty_with_underscore(str(t['params'].get('mem_cache_value', BLANC)))
+        new_cache_value = replace_empty_with_underscore(str(t['output'].get('mem_cache_value', BLANC)))
 
         tape_input = replace_empty_with_underscore(t['params']['tape_input'])
 

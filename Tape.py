@@ -29,7 +29,7 @@ class Tape:
         self.current.char = value
 
     def get_current(self):
-        return self.current.char
+        return self.current.char.strip()
 
     def get_left_side(self):
         left = ""

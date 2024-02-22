@@ -15,6 +15,8 @@ q_states:
   - 'q11'
   - 'q12'
   - 'q13'
+  - 'q13.1'
+  - 'q13.2'
   - 'q14'
   - 'q15'
   - 'q16'
@@ -410,10 +412,10 @@ delta:
       mem_cache_value:
       tape_input: '1'
     output:
-      final_state: 'q11'
+      final_state: 'q13.1'
       mem_cache_value:
-      tape_output: 'b'
-      tape_displacement: R
+      tape_output: '1'
+      tape_displacement: L
 
   - params:
       initial_state: 'q13'
@@ -421,6 +423,36 @@ delta:
       tape_input: 'b'
     output:
       final_state: 'q14'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q13.1'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q13.1'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q13.1'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q13.2'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q13.2'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q11'
       mem_cache_value:
       tape_output: 'b'
       tape_displacement: R

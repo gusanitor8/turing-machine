@@ -1,0 +1,612 @@
+# Lista de estados
+q_states:
+  q_list:
+  - 'q0'
+  - 'q1'
+  - 'q2'
+  - 'q3'
+  - 'q4'
+  - 'q5'
+  - 'q6'
+  - 'q7'
+  - 'q8'
+  - 'q9'
+  - 'q10'
+  - 'q11'
+  - 'q12'
+  - 'q13'
+  - 'q14'
+  - 'q15'
+  - 'q16'
+  - 'q17'
+  - 'q18'
+  - 'q19'
+  - 'q20'
+  - 'q21'
+  - 'qhalt'
+  initial: 'q0'
+  final: 'qhalt'
+
+# Alfabetos de la MT
+alphabet:
+- '1'
+- 'b'
+- 'C'
+- 'S'
+- '#'
+- '|'
+- '_'
+- '$'
+tape_alphabet:
+- '1'
+- '_'
+- '|'
+
+# Función de transición
+delta:
+  - params:
+      initial_state: 'q0'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q1'
+      mem_cache_value:
+      tape_output: '$'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q1'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q2'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q1'
+      mem_cache_value:
+      tape_input: '|'
+    output:
+      final_state: 'qhalt'
+      mem_cache_value:
+      tape_output: '|'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q2'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q2'
+      mem_cache_value:
+      tape_output: '1 '
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q2'
+      mem_cache_value:
+      tape_input: '|'
+    output:
+      final_state: 'q3'
+      mem_cache_value:
+      tape_output: '|'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q3'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q4'
+      mem_cache_value:
+      tape_output: '#'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q4'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q4'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q4'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q5'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q5'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q5'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q5'
+      mem_cache_value:
+      tape_input: 'B'
+    output:
+      final_state: 'q6'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q6'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q6'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q6'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q6'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q6'
+      mem_cache_value:
+      tape_input: '#'
+    output:
+      final_state: 'q7'
+      mem_cache_value:
+      tape_output: '#'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q7'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q8'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q7'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q10'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q7'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q13'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q8'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q8'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q8'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q8'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q8'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q8'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q8'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q8'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q8'
+      mem_cache_value:
+      tape_input: 'B'
+    output:
+      final_state: 'q9'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q9'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q9'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q9'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q9'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q9'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q9'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q9'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q9'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: L
+
+
+  - params:
+      initial_state: 'q9'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q7'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q10'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q10'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q10'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q10'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q10'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q10'
+      mem_cache_value:
+      tape_output: 'S'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q10'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q10'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q10'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q11'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q11'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q11'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q11'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q11'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q11'
+      mem_cache_value:
+      tape_input: 'B'
+    output:
+      final_state: 'q12'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q12'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q12'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q12'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q13'
+      mem_cache_value:
+      tape_output: 'C'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q13'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q11'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q13'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q14'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q14'
+      mem_cache_value:
+      tape_input: 'C'
+    output:
+      final_state: 'q15'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q15'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q15'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q15'
+      mem_cache_value:
+      tape_input: 'S'
+    output:
+      final_state: 'q16'
+      mem_cache_value:
+      tape_output: '_'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q16'
+      mem_cache_value:
+      tape_input: '|'
+    output:
+      final_state: 'q17'
+      mem_cache_value:
+      tape_output: '|'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q16'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q16'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q16'
+      mem_cache_value:
+      tape_input: '#'
+    output:
+      final_state: 'q16'
+      mem_cache_value:
+      tape_output: '#'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q16'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q16'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q17'
+      mem_cache_value:
+      tape_input: '$'
+    output:
+      final_state: 'qhalt'
+      mem_cache_value:
+      tape_output: '$'
+      tape_displacement: S
+
+  - params:
+      initial_state: 'q17'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q18'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q18'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q18'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: L
+
+  - params:
+      initial_state: 'q18'
+      mem_cache_value:
+      tape_input: '$'
+    output:
+      final_state: 'q19'
+      mem_cache_value:
+      tape_output: '$'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q19'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q20'
+      mem_cache_value:
+      tape_output: '$'
+      tape_displacement: R
+
+
+  - params:
+      initial_state: 'q20'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q20'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+
+  - params:
+      initial_state: 'q20'
+      mem_cache_value:
+      tape_input: '|'
+    output:
+      final_state: 'q21'
+      mem_cache_value:
+      tape_output: '|'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q21'
+      mem_cache_value:
+      tape_input: '#'
+    output:
+      final_state: 'q21'
+      mem_cache_value:
+      tape_output: '#'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q21'
+      mem_cache_value:
+      tape_input: '1'
+    output:
+      final_state: 'q21'
+      mem_cache_value:
+      tape_output: '1'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q21'
+      mem_cache_value:
+      tape_input: 'b'
+    output:
+      final_state: 'q21'
+      mem_cache_value:
+      tape_output: 'b'
+      tape_displacement: R
+
+  - params:
+      initial_state: 'q21'
+      mem_cache_value:
+      tape_input: '_'
+    output:
+      final_state: 'q4'
+      mem_cache_value:
+      tape_output: '#'
+      tape_displacement: R
+
+# Cadenas a ser simuladas por su MT luego de parsearla y generarla
+simulation_strings:
+- 11111|__1

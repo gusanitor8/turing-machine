@@ -13,6 +13,20 @@ from TuringMachine import TuringMachine
 def format_number(n):
     return f"- {'1' * n}|__1"
 
+# Refresca los strings de simulacion del yaml
+def refresh_yaml_file(file_path):
+    with open(file_path, 'r+') as file:
+        lines = file.readlines()
+        cut_off_index = None
+        for i, line in enumerate(lines):
+            if "simulation_strings:" in line:
+                cut_off_index = i + 1 
+                break
+        if cut_off_index is not None:
+            file.seek(0)
+            file.writelines(lines[:cut_off_index] + ['\n'])
+            file.truncate()
+
 # Mide el tiempo de ejecucion de la maquina de turing en ms
 def profile_function(func, *args, **kwargs):
     pr = cProfile.Profile()
@@ -101,6 +115,7 @@ def main():
     numbers = list(range(1, 11))
     formatted_numbers = [format_number(n) for n in numbers]
     yaml_file_path = 'MT_fibonacci.yaml'
+    refresh_yaml_file(yaml_file_path)
     append_to_yaml(yaml_file_path, formatted_numbers)
     exec_times = run_simulation(yaml_file_path)
     if exec_times:

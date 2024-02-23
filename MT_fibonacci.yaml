@@ -641,6 +641,7 @@ delta:
 
 # Cadenas a ser simuladas por su MT luego de parsearla y generarla
 simulation_strings:
+
 - 1|__1
 - 11|__1
 - 111|__1
